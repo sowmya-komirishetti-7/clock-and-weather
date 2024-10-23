@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Clock And Weather</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <button mat-button class="nav-link text-size"  (click)="showContent('home')"> <p>Home</p></button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="nav-link" (click)="showContent('clock')"> <p>Clock</p></button>
+        </li>
+        <li class="nav-item">
+          <button mat-button class="nav-link" (click)="showContent('weather')"> <p> Weather</p></button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="content-container mt-4">
+    <!-- Conditional content display based on button clicked -->
+    <div *ngIf="activeContent === 'home'">
+      <h1>Welcome to the Home Page</h1>
+      <p>Current Date & Time: {{ currentDate }}</p>
+      <p>Weather: Sunny, 25°C</p>
+    </div>
+  
+    <div *ngIf="activeContent === 'clock'">
+       
+      <app-clock></app-clock>
+         
+    </div>
+  
+    <div *ngIf="activeContent === 'weather'">
+
+      <app-weather></app-weather>
+    </div>
+  
+  

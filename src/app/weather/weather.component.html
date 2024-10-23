@@ -1,0 +1,84 @@
+
+  <div class="weather-widget">
+    <div >
+      <div class="weather-header">
+          <p class="weather-title">Today's Weather</p>
+          <p class="weather-date"><strong>{{ crntTime | date: 'EEE, MMM d' }}</strong></p>
+            </div>
+      <div class="current-weather">
+        <div class="d-flex">
+        <img src="https://vectorified.com/images/mostly-sunny-weather-icon-30.jpg" alt="sunny image" width="30" height="30"/> &nbsp; &nbsp;&nbsp;
+          <p>Partly sunny humid <strong>Hi: {{ weatherData.current.humidity }} %</strong></p>
+        </div>
+        <div class="d-flex">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.CspRqJSPiZiE44iIZS2yUQHaH1&pid=Api&P=0&h=180" alt="cloudy image" width="30" height="30" />&nbsp;&nbsp;&nbsp;
+          <p>Tonight: Mostly cloudy with a shower in places <strong>Lo: 23°</strong></p>
+        </div>
+        
+      </div>
+        
+           </div>
+
+       <div class="weather-current mb-1">
+       
+          <p>Current Weather</p>
+          <p><strong>{{ crntTime | date: 'h:mm a' }}</strong></p>
+      </div>
+      <mat-card class="weather-card">
+          <div class="main-temp row">
+            <div class="col-md-6 d-flex align-items-center sunny" style="flex-direction: column; justify-content: flex-start; align-items: flex-start;">
+              <div class="d-flex align-items-center">
+               <img src="https://tse2.mm.bing.net/th?id=OIP.4ap6zLZv7AfreodpM-FmPAHaHa&pid=Api&P=0&h=180" alt="image" width="75" height="75"/>
+              <p class="temperature ">{{ weatherData.current.temp_c }} °C</p><br>
+            </div>
+              <p class="mb-2 real-feel">RealFeel {{ weatherData.current.wind_kph }}°</p>
+            </div>
+          
+            <div class="col-md-6">
+            <p class="mb-2 line-with-separator">
+              <span class="left-text">RealFeel Shade</span>
+              <span class="right-text" style="font-size: bold;"><strong>{{ weatherData1.current.realFeelShade }}°</strong></span>
+            </p>
+            <p class="mb-2 line-with-separator">
+              <span class="left-text">Wind</span>
+              <span class="right-text"><strong>{{ weatherData.current.wind_kph }}</strong></span>
+            </p>
+            <p class="mb-2 line-with-separator">
+              <span class="left-text">Wind Gusts</span>
+              <span class="right-text"><strong>{{ weatherData.current.gust_kph }}</strong></span>
+            </p>
+
+            <p class="mb-2 line-with-separator">
+              <span class="left-text">Air Quality</span>
+              <span class="right-text text-warning"><strong>{{ weatherData.current.air_quality ? weatherData.current.air_quality['us-epa-index'] : 'Not Available' }}
+              </strong></span>
+            </p>
+
+          </div>
+          </div>
+        </mat-card>
+    </div>
+ 
+
+<!-- 
+    <div>
+      <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+      <button (click)="getWeatherReport()">Get Weather</button>
+    </div>
+    
+   <div >
+    <h2>Weather in {{ weatherData.location.name }}</h2>
+    <p>Temperature: {{ weatherData.current.temp_c }} °C</p>
+    <p>Weather: {{ weatherData.current.condition.text }}</p>
+    <p>Humidity: {{ weatherData.current.humidity }} %</p>
+    <p>Wind Speed: {{ weatherData.current.wind_kph }} kph</p>
+    <p>Real Feel: {{ weatherData.current.wind_kph }} kph</p>
+    <p>Wind Gusts: {{ weatherData.current.gust_kph }} kph</p> 
+  <p>Air Quality: {{ weatherData.current.air_quality['us-epa-index'] }} (US EPA Index)</p>  Air Quality
+  <p>Wind Direction: {{ weatherData.current.wind_dir }}</p>  Wind Direction
+
+  </div>
+    <div *ngIf="!weatherData">
+      <p>Loading weather data...</p>
+    </div>
+     -->

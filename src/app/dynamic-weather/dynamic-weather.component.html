@@ -1,0 +1,21 @@
+<div>
+    <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+    <button (click)="getWeatherReport()">Get Weather</button>
+  </div>
+  
+  <div >
+    <h2>Weather in {{ weatherData.location.name }}</h2>
+    <p>Temperature: {{ weatherData.current.temp_c }} °C</p>
+    <p>Weather: {{ weatherData.current.condition.text }}</p>
+    <p>Humidity: {{ weatherData.current.humidity }} %</p>
+    <p>Wind Speed: {{ weatherData.current.wind_kph }} kph</p>
+    <p>Real Feel: {{ weatherData.current.wind_kph }} kph</p>
+    <p>Wind Gusts: {{ weatherData.current.gust_kph }} kph</p> <!-- Wind Gusts -->
+  <p>Air Quality: {{ weatherData.current.air_quality['us-epa-index'] }} (US EPA Index)</p> <!-- Air Quality -->
+  <p>Wind Direction: {{ weatherData.current.wind_dir }}</p> <!-- Wind Direction -->
+
+  </div>
+  <div *ngIf="!weatherData">
+    <p>Loading weather data...</p>
+  </div>
+  
